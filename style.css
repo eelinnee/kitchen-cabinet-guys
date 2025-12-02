@@ -1,0 +1,886 @@
+.wrapper {
+    max-width: 1440px;
+    max-height: 5800px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Red Hat Display';
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    white-space: nowrap;
+}
+
+/* Навигационная панель */
+.nav-header {
+    height: 102px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    border-radius: 0 0 48px 48px;
+    padding: 0 42px 0 42px;
+    background-color: #FFFFFF;
+    position: relative;
+    font-weight: 600;
+    z-index: 100;
+    white-space: nowrap;
+}
+
+/* Верхнее меню */
+.nav-header ul {
+    display: flex;
+    list-style: none;
+    font-size: 18px;
+    gap: 15px;
+    align-items: start;
+}
+
+.nav-header li:hover {
+    color: orange;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.nav-header li::after {
+    content: "  ^";
+    display: inline-block;
+    transform: rotate(0deg) translateY(4px);
+    padding: 5px;
+}
+
+.nav-header li:hover::after {
+    content: "  ^";
+    display: inline-block;
+    transform: rotate(180deg) translateY(1px);
+    padding: 5px;
+}
+
+.getf {
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-left: 24px;
+    width: 212px;
+    height: 72px;
+    border-radius: 72px;
+    padding: 24px 32px 24px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #DA7816;
+    border: none;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    /* white-space: nowrap; */
+}
+
+.nav-header img {
+    height: 50px;
+}
+
+.company-name {
+    align-self: flex-end;
+    height: 56.38px;
+    margin-top: 1px;
+}
+
+.logo-sect {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-right: 0;
+}
+
+/* Выпадающее окно */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    font-family: "Manrope";
+    line-height: 1.5;
+    width: 333px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 201%;
+    left: 0;
+    background-color: #F6F3EC;
+    /* align-self: self-start;
+    align-items: flex-start;
+    align-content: start; */
+    text-align: left;
+    border: 1px solid #D9D9D9;
+    border-radius: 0 0 24px 24px;
+    list-style: none;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    gap: 16px;
+    transition: ease 0.5s;
+    box-sizing: border-box;
+    padding: 33px;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.dropdown-content li {
+    text-align: left;
+    display: block;
+    color: #151515;
+    cursor: pointer;
+    align-items: self-start;
+    transition: all 0.2s ease;
+}
+
+.dropdown-content li:hover {
+    color: orange;
+}
+
+.nav-header li:not(.dropdown):not(#comm):not(#about):not(#area)::after {
+    content: none;
+}
+
+.dropdown::after,
+#comm::after,
+#about::after,
+#area::after {
+    content: " ^";
+    display: inline-block;
+    transform: rotate(0deg) translateY(4px);
+    padding: 5px;
+    transition: transform 0.2s linear;
+}
+
+.dropdown:hover::after,
+#comm:hover::after,
+#about:hover::after,
+#area:hover::after {
+    transform: rotate(180deg) translateY(1px);
+}
+
+/* Окно с главным текстом */
+.main-header {
+    height: 689px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -102px;
+    position: relative;
+}
+
+.main-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("images/kitchen_img.jpg");
+    background-color: #CDCDCD;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.5);
+    z-index: -1;
+    border-radius: 0 0 72px 72px;
+}
+
+.header-content {
+    flex: content;
+    text-align: center;
+    color: white;
+    max-height: 800px;
+    position: relative;
+    z-index: 1;
+    margin-top: 135px;
+}
+
+.header-content h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+.header-content span {
+    font-family: "Manrope";
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+button {
+    font-family: "Manrope";
+    width: 237px;
+    height: 72px;
+    border-radius: 72px;
+    padding: 24px 32px 24px 32px;
+    font-size: 16px;
+    margin-top: 24px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+#btn-get {
+    background-color: #DA7816;
+    border: none;
+    color: #FFFFFF
+}
+
+#btn-view {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    margin-left: 16px;
+}
+
+#btn-get:hover {
+    background-color: #F6F3EC;
+    color: #151515;
+}
+
+#btn-view:hover {
+    background-color: #FFFFFF;
+    color: #151515;
+}
+
+/* Преимущества */
+.benefits-section {
+    font-family: "Manrope";
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    height: 54px;
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: #FFFFFF;
+    flex-wrap: wrap;
+    white-space: normal;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 300px;
+}
+
+.benefit-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #F6F3EC;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.benefit-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #151515;
+}
+
+.benefit-highlight {
+    font-weight: bold;
+}
+
+/* Секция 1 */
+.services-section {
+    margin-top: -40px;
+    background-color: #F6F3EC;
+    border-radius: 72px;
+    text-align: center;
+    padding-bottom: 72px;
+}
+
+.services-section h2 {
+    padding-top: 100px;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.cab-refacing {
+    display: flex;
+    align-items: flex-start;
+    background-color: #FFFFFF;
+    border-radius: 32px;
+    margin: 72px;
+    padding: 24px;
+    margin-bottom: 0;
+}
+
+.serv-imgs {
+    display: inline-block;
+    width: 612px;
+    height: 418px;
+    border-radius: 32px;
+    align-items: baseline;
+}
+
+.info-contain {
+    width: 479px;
+    height: 321px;
+    margin-left: 32px;
+    display: inline-block;
+    text-align: left;
+    align-items: flex-start;
+    word-wrap: break-word;
+    justify-content: flex-start;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+.subheading {
+    line-height: 1.2;
+    font-size: 22px;
+    font-weight: 400px;
+}
+
+.xs-text {
+    color: #5E5E5E;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.s-text {
+    margin-top: 16px;
+    color: #5E5E5E;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+h3 {
+    margin: 0;
+    margin-top: 16px;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.btn-more {
+    width: 150px;
+    height: 72px;
+    background-color: transparent;
+    color: #45280A;
+    border: 1px solid #45280A;
+}
+
+.btn-more:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+    border: none;
+    background-color: #F37021;
+}
+
+/* Секция 2 */
+.cab-replacement {
+    margin: 16px 72px 16px 72px;
+    display: flex;
+    align-items: stretch;
+    /* align-items: flex-start; */
+    background-color: #FFFFFF;
+    /* width: 1296;
+    height: 466; */
+    border-radius: 32px;
+    gap: 32px;
+    padding: 24px;
+    flex-direction: row-reverse;
+}
+
+.cab-replacement .info-contain {
+    margin-right: 72px;
+    align-items: baseline;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: 32px;
+}
+
+.cab-thermofoil {
+    margin: 16px 72px 16px 72px;
+    display: flex;
+    align-items: flex-start;
+    background-color: #FFFFFF;
+    /* width: 1296;
+    height: 466; */
+    border-radius: 32px;
+    /* gap: 32px; */
+    padding: 58px;
+}
+
+/* Секция 3 */
+.gallery-section {
+    background-color: #342F28;
+    background-image:
+        linear-gradient(rgba(52, 47, 40, 0.8), rgba(52, 47, 40, 0.8)),
+        url("logo_big.svg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    padding: 40px 20px;
+    border-radius: 72px;
+    margin: 72px 0px 72px 0px;
+    color: #F6F3EC;
+}
+
+.gallery-text {
+    display: flex;
+    align-items: flex-start;
+}
+
+.gallery-text h2 {
+    width: 415px;
+    height: 58px;
+    margin-left: 45px;
+    font-size: 48px;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+#btn-browse {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    margin-left: 0;
+}
+
+#btn-browse:hover {
+    background-color: #FFFFFF;
+    color: #151515;
+}
+
+.button-descr {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 550px;
+    gap: 32px;
+    margin-right: 45px;
+}
+
+.gallery-imgs {
+    margin-left: 45px;
+    margin-right: 45px;
+    border-radius: 24px;
+    padding-top: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    overflow: hidden;
+}
+
+.before,
+.after {
+    flex: 1;
+    width: 636px;
+    height: 529px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.before {
+    background-image: url("images/gal-ktchn0.jpg");
+}
+
+.after {
+    background-image: url("images/gal-ktchn2.jpg");
+}
+
+.btn-befaf {
+    padding: 0;
+    text-align: center;
+    border: none;
+    cursor: default;
+    width: 115px;
+    height: 56px;
+    background-color: #F6F3EC;
+    border-radius: 72px;
+    font-size: 600;
+    color: #342F28;
+    margin-left: 32px;
+}
+
+.gallery-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 45px;
+}
+
+.gallery-bottom p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #F6F3EC;
+    cursor: pointer;
+}
+
+.gallery-bottom .gallery-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.gallery-bottom button {
+    background-color: transparent;
+    color: #F6F3EC;
+    border: 1px solid #F6F3EC;
+    width: 72px;
+    height: 72px;
+    margin-right: 0;
+    padding: 0;
+}
+
+.gallery-bottom button:hover {
+    border: 1px solid #CDCDCD;
+    color: #CDCDCD;
+}
+
+/* Секция с отзывами */
+.testimonials-section {
+    margin: 72px 0px 72px 0px;
+    color: #F6F3EC;
+    justify-content: space-between;
+    gap: 100px;
+    padding: 0 0 0 40px;
+}
+
+.testimonials-text h2 {
+    line-height: 1.2;
+    width: 416px;
+    font-size: 48px;
+    font-weight: 400;
+    color: #151515;
+    margin-top: 0;
+    margin-left: 40px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+}
+
+.testimonials-text p {
+    line-height: 1.5;
+    width: 746px;
+    margin-top: 0;
+    margin-bottom: 45px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #151515;
+    margin-left: 134px;
+    font-family: 'Manrope';
+}
+
+.testimonials-text {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
+
+.review-content {
+    font-weight: 500;
+    font-size: 18px;
+    width: 416px;
+    height: 389px;
+    border: 1px solid #FFFFFF;
+    border-radius: 32px;
+    background-color: #FAFAFA;
+    padding: 40px;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    color: #5E5E5E;
+    box-sizing: border-box;
+}
+
+.testimonials-cards {
+    font-family: 'Manrope';
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.testimonials-cards p {
+    width: 331px;
+    height: 189px;
+}
+
+.rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 30px;
+}
+
+.rating .star {
+    width: 22px;
+    height: 22px;
+}
+
+/* Секция с формой записи */
+.contact-section {
+    height: 970px;
+    background-color: #F6F3EC;
+    background-image:
+        linear-gradient(rgba(246, 243, 236, 0.8), rgba(246, 243, 236, 0.8)),
+        url("logo_big.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 481px 553.75634765625px;
+    padding: 40px 40px 40px 40px;
+    border-radius: 72px;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+.contact-img {
+    width: 746px;
+    height: 771px;
+    border-radius: 32px;
+    object-fit: cover;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.contact-content {
+    margin-left: 20px;
+    height: 694px;
+    width: 494px;
+    box-sizing: border-box;
+}
+
+.contact-title {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 1.2;
+    color: #151515;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.contact-subtitle {
+    margin-top: -24px;
+    padding: 0;
+    font-family: 'Manrope';
+    font-size: 18px;
+    font-weight: 500;
+    color: #5E5E5E;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.contact-form {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 484px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D9D9D9;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    font-family: 'Manrope';
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    outline: none;
+    box-sizing: border-box
+}
+
+.form-row {
+    display: flex;
+    gap: 17px;
+}
+
+.form-row input {
+    flex: 1;
+}
+
+select {
+    appearance: none;
+    background-color: #FFFFFF;
+    color: #5E5E5E;
+}
+
+textarea {
+    border-radius: 16px;
+    resize: none;
+    height: 122px
+}
+
+.contact-section .getf {
+    margin: 0;
+    margin-top: 24px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.getf:hover {
+    background-color: #F6F3EC;
+    color: #151515;
+}
+
+.upload-image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    width: 484px;
+    height: 61px;
+}
+
+.upload-image p {
+    margin: 0;
+    font-family: "Manrope";
+    font-size: 16px;
+    font-weight: 500;
+    color: #5E5E5E;
+    display: flex;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.upload-image img {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.upload-image span {
+    font-family: "Manrope";
+    margin: 0;
+    font-size: 14px;
+    color: #5E5E5E;
+    flex-basis: 100%;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.contact-form u {
+    color: #F37021;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.footer-section {
+    position: relative;
+    top: -72px;
+    background-color: #342F28;
+    padding-top: 81px;
+    height: 514px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    align-items: start;
+    justify-items: start;
+    z-index: -2;
+}
+
+.footer-item {
+    align-items: flex-start;
+    margin: 72px 0 0 72px;
+    height: 333px;
+    width: 348px;
+}
+
+.footer-s {
+    font-family: "Manrope";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFFBF4;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 24px;
+}
+
+.footer-m-w {
+    margin: 0;
+    font-family: "Manrope";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #FFFBF4;
+    word-wrap: break-word;
+    white-space: normal;
+    width: 298px;
+    text-decoration: none;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.footer-m {
+    font-family: "Manrope";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #F37021;
+    word-wrap: break-word;
+    white-space: normal;
+    width: 298px;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1px;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.footer-small img {
+    margin-top: 8px;
+    gap: 8px;
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+.icons img {
+    margin: 0;
+    height: 50px;
+    margin-top: 32px;
+    margin-right: 16px;
+}
+
+.footer-xs {
+    font-family: "Manrope";
+    margin: 0;
+    margin-top: 32px;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #FFFBF4;
+}
+
+
+.footer-item u {
+    text-decoration: underline;
+    color: #F37021;
+    text-decoration-thickness: 0.1px; 
+}
