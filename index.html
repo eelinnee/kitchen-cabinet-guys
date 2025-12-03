@@ -5,31 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kitchen Cabinet Guys</title>
-    <link href="https://fonts.cdnfonts.com/css/century-gothic" rel="stylesheet">
-    <link rel="icon" href="logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo/logo.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Prata&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
     <div class="wrapper">
+        <!-- Навигация для мобильных -->
         <div class="nav-header">
             <div class="logo-sect">
-                <img src="logo/logo.svg" alt="Kitchen Cabinet Guys Logo">
-                <img class="company-name" src="logo/Kitchen Cabinet Guys.svg" alt="Kitchen Cabinet Guys Logo Text">
+                <img src="logo/logo.svg" alt="Kitchen Cabinet Guys Logo" class="logo-img">
+                <img src="logo/Kitchen Cabinet Guys.svg" alt="Kitchen Cabinet Guys" class="company-name">
             </div>
-            <nav>
-                <ul style="align-items:center;">
+
+            <div class="mobile-nav-controls">
+                <a href="tel:8008097197" class="mobile-phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <nav class="desktop-nav">
+                <ul>
                     <li class="dropdown" id="serv">
                         Services
                         <ul class="dropdown-content">
@@ -44,7 +51,7 @@
                     <li id="about">About Us</li>
                     <li id="area">Areas We Serve</li>
                     <li id="cont">Contact Us</li>
-                    <li id="numb" style="color: #DA7816;">(800) 809-7197</li>
+                    <li id="numb">(800) 809-7197</li>
                     <li>
                         <button class="getf"
                             onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
@@ -55,191 +62,279 @@
             </nav>
         </div>
 
+        <!-- Окно для мобильных -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="back-btn" id="backBtn" style="display: none;">
+                    <i class="fas fa-arrow-left"></i> Back to menu
+                </button>
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mobile-menu-content" id="mainMenu">
+                <ul>
+                    <li class="mobile-dropdown" id="mobileServ">
+                        Services <i class="fas fa-chevron-right"></i>
+                    </li>
+                    <li>Commercial</li>
+                    <li>Gallery</li>
+                    <li>About Us</li>
+                    <li>Areas We Serve</li>
+                    <li>Contact Us</li>
+                    <li>(800) 809-7197</li>
+                </ul>
+
+                <button class="mobile-get-estimate"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); closeMobileMenu();">
+                    Get Your Free Estimate
+                </button>
+
+                <div class="mobile-menu-footer">
+                    <p>Your Kitchen Refacing Solution</p>
+                    <p>Bringing New Life to Your Kitchen Cabinets: American-Made, Family-Owned Company</p>
+                </div>
+            </div>
+
+            <div class="mobile-menu-content" id="servicesMenu" style="display: none;">
+                <ul>
+                    <li>Cabinet Refacing</li>
+                    <li>Cabinet Doors Replacement</li>
+                    <li>Thermofoil Cabinet Door Repair</li>
+                    <li>Decorative Wall Panels</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Основной заголовок -->
         <header class="main-header">
-            <div id="img1"></div>
             <div class="header-content">
                 <h1>Your Kitchen-Refacing Solution</h1>
-                <span>Bringing New Life to Your Kitchen Cabinets: American-<br>Made, Family-Owned Company</span>
+                <span>Bringing New Life to Your Kitchen Cabinets: American-Made, Family-Owned Company</span>
                 <div class="buttons">
                     <button id="btn-get"
                         onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Get Your Free
                         Estimate</button>
-                    <button id=btn-view>View Our Process</button>
+                    <button id="btn-view">View Our Process</button>
                 </div>
             </div>
         </header>
 
-        <body>
-            <div class="benefits-section">
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <img src="icons/money_bag.svg" alt="About savings">
-                    </div>
-                    <div class="benefit-text">
-                        <span class="benefit-highlight">Unlock 70% savings:</span>
-                        reface instead of replace
-                    </div>
+        <!-- Преимущества -->
+        <section class="benefits-section">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <img src="icons/money_bag.svg" alt="About savings">
                 </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <img src="icons/time_clock.svg" alt="About transformation">
-                    </div>
-                    <div class="benefit-text">
-                        Transform your kitchen in
-                        <span class="benefit-highlight">3-5 days</span>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <img src="icons/hand_bag.svg" alt="About financing">
-                    </div>
-                    <div class="benefit-text">
-                        Kitchen financing options available
-                    </div>
+                <div class="benefit-text">
+                    <span class="benefit-highlight">Unlock 70% savings:</span>
+                    reface instead of replace
                 </div>
             </div>
 
-            <div class="services-section">
-                <h2>Our Services</h2>
-                <div class="cab-refacing">
-                    <img src="images/ktchn1.jpg" class="serv-imgs" alt="Cabinet Refacing">
-                    <div class="info-contain">
-                        <span class="subheading">Refresh Your Existing Kitchen with</span>
-                        <h3>Cabinet Refacing</h3>
-                        <p class="xs-text">Keep Your Existing Doors</p>
-                        <p class="s-text">Our cabinet refacing service transforms
-                            the appearance of your kitchen while preserving
-                            its original layout and the structure of your
-                            existing cabinets and drawer fronts.</p>
-                        <button class="btn-more">Learn More</button>
-                    </div>
-
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <img src="icons/time_clock.svg" alt="About transformation">
                 </div>
-                <div class="cab-replacement">
-                    <img src="images/ktchn2.jpg" class="serv-imgs">
-                    <div class="info-contain">
-                        <span class="subheading">Replace Your Cabinet Doors with</span>
-                        <h3 style="white-space: nowrap;">Cabinet Door Replacement</h3>
-                        <p class="xs-text" width="479px">Custom-made Doors & Drawer Fronts</p>
-                        <p class="s-text">If your cabinet doors and drawer fronts require a refresh, our team can
-                            manufacture new cabinet doors in-house. We ensure the new elements seamlessly blend with
-                            your existing kitchen, providing an affordable and efficient upgrade.</p>
-                        <button class="btn-more">Learn More</button>
-                    </div>
-                </div>
-                <div class="cab-thermofoil">
-                    <img src="images/ktchn3.jpg" class="serv-imgs" alt="Cabinet Refacing">
-                    <div class="info-contain">
-                        <span class="subheading">Renew Your Peeling Cabinet Doors with</span>
-                        <h3>Thermofoil Cabinet Door Repair</h3>
-                        <p class="xs-text">Nationwide Shipping</p>
-                        <p class="s-text">We are one of very few cabinet refacing companies who can do this service at
-                            our
-                            workshop here in West Chicago, without disrupting your daily routine. Just ship your peeling
-                            or
-                            delaminating doors and fronts and get them back updated in less time than ordering new ones.
-                            We
-                            offer 48h repairs for Illinois residents.</p>
-                        <button class="btn-more">Learn More</button>
-                    </div>
+                <div class="benefit-text">
+                    Transform your kitchen in
+                    <span class="benefit-highlight">3-5 days</span>
                 </div>
             </div>
-            <div class="gallery-section">
-                <div class="gallery-sections">
-                    <div class="gallery-text">
-                        <h2>Gallery</h2>
-                        <div class="button-descr">
-                            <p>Browse our gallery to see before and after photos of our previous cabinet refacing
-                                <br>projects.
-                                Our transformative work speaks for itself.
-                            </p>
-                            <button id="btn-browse">Browse This Gallery</button>
-                        </div>
-                    </div>
-                    <div class="gallery-imgs">
-                        <div class="before">
-                            <button class="btn-befaf">Before</button>
-                        </div>
-                        <div class="after">
-                            <button class="btn-befaf">After</button>
-                        </div>
-                    </div>
-                    <div class="gallery-bottom">
-                        <p>View The Project</p>
 
-                        <div class="gallery-buttons">
-                            <button>&lt;</button>
-                            <button>&gt;</button>
-                        </div>
-                    </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <img src="icons/hand_bag.svg" alt="About financing">
+                </div>
+                <div class="benefit-text">
+                    Kitchen financing options available
                 </div>
             </div>
-            <div class="testimonials-section">
-                <div class="testimonials-text">
-                    <h2>Testimonials</h2>
-                    <p>Read what our satisfied clients say about their experience with Kitchen Cabinet Guys<br>and the
-                        quality
-                        of
-                        our work.</p>
-                </div>
-                <div class="testimonials-cards">
-                    <div class="review-content">
-                        THE Kitchen Cabinet Guys ARE GREAT! HIGHLY RECOMMENDED! I found them on the Web (Google Search)
-                        and
-                        filled out a "Contact" form on a Sat. I couldn't believe that Andrei called me on Sunday morn. -
-                        I
-                        told my wife "I already like these guys!".
-                        <p style="font-size:16px;">Christopher Torre</p>
-                    </div>
-                    <div class="review-content">
-                        Andre and the team @ Kitchen Cabinet Guys LLC did a stunning transformation of my family’s
-                        kitchen.
-                        Our realtor said we easily increased the value of our home by $30k for less than a third of the
-                        cost. If anyone is considering a new kitchen,
-                        <p style="font-size:16px;">Michael Jason</p>
-                    </div>
-                    <div class="review-content" style="margin-left: 0px;">
-                        <p>THE Kitchen Cabinet Guys ARE GREAT! HIGHLY RECOMMENDED! I found them on the Web (Google
-                            Search) and
-                            filled out a "Contact" form on a Sat. I couldn't believe that Andrei called me on Sunday
-                            morn. - I
-                            told my wife "I already like these guys!".</p>
-                        <p style="font-size:16px;">Christopher Torre</p>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-section">
-                <img src="images/ktchn1.jpg" alt="Modern kitchen" class="contact-img">
+        </section>
 
-                <div class="contact-content" id="contact">
-                    <h2 class="contact-title">Take the First Step Towards Your Kitchen Makeover</h2>
-
-                    <p class="contact-subtitle">
-                        Ready to transform your kitchen? Contact us today to get started with your free estimate!
+        <!-- Услуги -->
+        <section class="services-section">
+            <h2>Our Services</h2>
+            <div class="service-card">
+                <img src="images/ktchn1.jpg" class="service-img" alt="Cabinet Refacing">
+                <div class="service-info">
+                    <span class="subheading">Refresh Your Existing Kitchen with</span>
+                    <h3>Cabinet Refacing</h3>
+                    <p class="xs-text">Keep Your Existing Doors</p>
+                    <p class="s-text">Our cabinet refacing service transforms the appearance of your kitchen while
+                        preserving its original layout and the structure of your existing cabinets and drawer fronts.
                     </p>
+                    <button class="btn-more">Learn More</button>
+                </div>
+            </div>
+
+            <div class="service-card reverse">
+                <img src="images/ktchn2.jpg" class="service-img" alt="Cabinet Door Replacement">
+                <div class="service-info">
+                    <span class="subheading">Replace Your Cabinet Doors with</span>
+                    <h3>Cabinet Door Replacement</h3>
+                    <p class="xs-text">Custom-made Doors & Drawer Fronts</p>
+                    <p class="s-text">If your cabinet doors and drawer fronts require a refresh, our team can
+                        manufacture new cabinet doors in-house. We ensure the new elements seamlessly blend with your
+                        existing kitchen, providing an affordable and efficient upgrade.</p>
+                    <button class="btn-more">Learn More</button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/ktchn3.jpg" class="service-img" alt="Thermofoil Cabinet Door Repair">
+                <div class="service-info">
+                    <span class="subheading">Renew Your Peeling Cabinet Doors with</span>
+                    <h3>Thermofoil Cabinet Door Repair</h3>
+                    <p class="xs-text">Nationwide Shipping</p>
+                    <p class="s-text">We are one of very few cabinet refacing companies who can do this service at our
+                        workshop here in West Chicago, without disrupting your daily routine. Just ship your peeling or
+                        delaminating doors and fronts and get them back updated in less time than ordering new ones. We
+                        offer 48h repairs for Illinois residents.</p>
+                    <button class="btn-more">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Галерея -->
+        <section class="gallery-section">
+            <div class="gallery-container">
+                <div class="gallery-header">
+                    <h2>Gallery</h2>
+                    <div class="gallery-description">
+                        <p>Browse our gallery to see before and after photos of our previous cabinet refacing projects.
+                            Our transformative work speaks for itself.</p>
+                        <button id="btn-browse">Browse This Gallery</button>
+                    </div>
+                </div>
+
+                <div class="gallery-images">
+                    <div class="before-image">
+                        <button class="btn-befaf">Before</button>
+                    </div>
+                    <div class="after-image">
+                        <button class="btn-befaf">After</button>
+                    </div>
+                </div>
+
+                <div class="gallery-footer">
+                    <p>View The Project</p>
+                    <div class="gallery-nav">
+                        <button class="gallery-btn prev-btn">&lt;</button>
+                        <button class="gallery-btn next-btn">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section class="testimonials-section">
+            <div class="testimonials-header">
+                <h2>Testimonials</h2>
+                <p>Read what our satisfied clients say about their experience with Kitchen Cabinet Guys and the quality
+                    of our work.</p>
+            </div>
+
+            <div class="testimonials-mobile mobile-only">
+                <div class="testimonials-cards">
+                    <div class="review-content active">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">THE Kitchen Cabinet Guys ARE GREAT! HIGHLY RECOMMENDED! I found them
+                            on the Web (Google Search) and filled out a "Contact" form on a Sat. I couldn't believe that
+                            Andrei called me on Sunday morn. - I told my wife "I already like these guys!".</p>
+                        <p class="client-name">Christopher Torrе</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-container desktop-only">
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">THE Kitchen Cabinet Guys ARE GREAT! HIGHLY RECOMMENDED! I found them on
+                        the Web (Google Search) and filled out a "Contact" form on a Sat. I couldn't believe that Andrei
+                        called me on Sunday morn. - I told my wife "I already like these guys!".</p>
+                    <p class="client-name">Christopher Torre</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Andre and the team @ Kitchen Cabinet Guys LLC did a stunning transformation of my family’s kitchen. Our realtor said we easily increased the value of our home by $30k for less than a third of the cost. If anyone is considering a new kitchen,"</p>
+                    <p class="client-name">Michael Jason</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">THE Kitchen Cabinet Guys ARE GREAT! HIGHLY RECOMMENDED! I found them on
+                        the Web (Google Search) and filled out a "Contact" form on a Sat. I couldn't believe that Andrei
+                        called me on Sunday morn. - I told my wife "I already like these guys!".</p>
+                    <p class="client-name">Christopher Torre</p>
+                </div>
+            </div>
+
+            <div class="testimonials-nav mobile-only">
+                <button class="testimonial-btn prev-testimonial">&lt;</button>
+                <button class="testimonial-btn next-testimonial">&gt;</button>
+            </div>
+        </section>
+
+        <!-- Контактная форма -->
+        <section class="contact-section" id="contact">
+            <div class="contact-container">
+                <img src="images/ktchn1.jpg" alt="Modern kitchen" class="contact-image">
+
+                <div class="contact-form-container">
+                    <h2 class="contact-title">Take the First Step Towards Your Kitchen Makeover</h2>
+                    <p class="contact-subtitle">Ready to transform your kitchen? Contact us today to get started with
+                        your free
+                        estimate!</p>
 
                     <form class="contact-form">
                         <div class="form-row">
                             <input type="text" placeholder="First Name">
                             <input type="text" placeholder="Last Name">
                         </div>
+
                         <div class="form-row">
-                            <input type="email" placeholder="Email">
-                            <input type="tel" placeholder="Phone">
+                            <input type="email" placeholder="Email" required>
+                            <input type="tel" placeholder="Phone" required>
                         </div>
 
                         <input type="text" placeholder="Address">
-                        <div class="form-row">
-                            <select>
-                                <option value="" disabled selected>Select Service</option>
-                                <option>Cabinet Refacing</option>
-                                <option>Cabinet Door Replacement</option>
-                                <option>Thermofoil Cabinet Door Repair</option>
-                            </select>
-                        </div>
+
+                        <select required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option>Cabinet Refacing</option>
+                            <option>Cabinet Door Replacement</option>
+                            <option>Thermofoil Cabinet Door Repair</option>
+                        </select>
+
                         <textarea placeholder="Message" rows="4"></textarea>
+
                         <div class="upload-image">
                             <p><u>Upload</u>&nbsp;your pictures</p>
                             <img src="icons/upload_icon.svg" alt="Upload icon">
@@ -247,53 +342,67 @@
                         </div>
                         <input type="file" id="hidden-file-input" name="photo" multiple accept="image/*"
                             style="display: none;">
-                        <button type="submit" class="getf">
+                        <button type="submit" class="submit-btn getf" style="margin-left: auto;">
                             Get a Free Estimate
                         </button>
                     </form>
                 </div>
             </div>
-        </body>
-        <footer>
-            <div class="footer-section">
-                <div class="footer-item">
-                    <p class="footer-s">Physical Address:</p>
-                    <p class="footer-m">245 W. Roosevelt Rd 4 Unit 29, West Chicago, IL 60185</p>
-                    <p class="footer-s">Phone:</p>
-                    <p class="footer-m">(800) 809-7197</p>
-                    <p class="footer-s">Hours of Operation:</p>
-                    <p class="footer-m-w" style="height: 333px;">Our Online Support is available 24/7
-                        Monday – Friday: 9:00 AM – 5:00 PM Saturday: 9:00 AM – 2:00 PM
+        </section>
+
+        <!-- Подвал -->
+        <footer class="footer-section">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <p class="footer-label">Physical Address:</p>
+                    <p class="footer-phone">245 W. Roosevelt Rd 4 Unit 29, West Chicago, IL 60185</p>
+
+                    <p class="footer-label">Phone:</p>
+                    <p class="footer-phone">(800) 809-7197</p>
+
+                    <p class="footer-label">Hours of Operation:</p>
+                    <p class="footer-text">Our Online Support is available 24/7<br>
+                        Monday – Friday: 9:00 AM – 5:00 PM<br>
+                        Saturday: 9:00 AM – 2:00 PM<br>
                         Sunday: Closed</p>
                 </div>
-                <div class="footer-item">
-                    <p class="footer-s">Follow Us:</p>
-                    <div class="footer-small">
+
+                <div class="footer-column">
+                    <p class="footer-label">Follow Us:</p>
+                    <div class="social-icons">
                         <img src="icons/follow_icon1.svg" alt="Yelp icon">
                         <img src="icons/follow_icon2.svg" alt="Facebook icon">
                     </div>
 
-                    <p class="footer-s">Brought to you by</p>
-                    <img src="logo/thermoflip_logo.png" style="width: 236px; height: 60px;" alt="Thermoflip logo"><br>
-                    <div class="icons">
-                        <img src="images/homeadvisor1.png" alt="Homeadvisor: screeened & approved">
-                        <img src="images/homeadvisor2.png" alt="Homeadvisor: screeened & approved (3 y)">
+                    <p class="footer-label">Brought to you by</p>
+                    <img src="logo/thermoflip_logo.png" class="thermoflip-logo" alt="Thermoflip logo">
+
+                    <div class="certification-icons">
+                        <img src="images/homeadvisor1.png" alt="Homeadvisor: screened & approved">
+                        <img src="images/homeadvisor2.png" alt="Homeadvisor: screened & approved (3 y)">
                         <img src="images/homeadvisor3.png" alt="A+ Rating">
                     </div>
-                    <p class="footer-xs">Copyright © 2023 Kitchen Cabinet Guys - All Rights Reserved</p>
                 </div>
-                <div class="footer-item">
-                    <p class="footer-m-w" style="margin-top: 24px;">Blog</p>
-                    <p class="footer-m-w">FAQ</p>
+
+                <div class="footer-column links-column">
+                    <p class="footer-link">Blog</p>
+                    <p class="footer-link">FAQ</p>
                 </div>
-                <div class="footer-item">
-                    <p class="footer-m-w" style="margin-top: 24px; margin-left: -162px;">Privacy Policy</p>
-                    <p class="footer-m-w" style="margin-left: -162px;"">Terms & Conditions</p>
-                    <p class=" footer-xs" style="margin-top: 253px; margin-left: -253px;">Created By&nbsp;<u>Comrade
-                            Digital Marketing Agency</u></p>
+
+                <div class="footer-column links-column">
+                    <p class="footer-link">Privacy Policy</p>
+                    <p class="footer-link">Terms & Conditions</p>
                 </div>
-                <script src="index.js"></script>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">Copyright © 2023 Kitchen Cabinet Guys - All Rights Reserved</p>
+                <p class="created-by">Created By <u>Comrade Digital Marketing Agency</u></p>
+            </div>
         </footer>
     </div>
+
+    <script src="index.js"></script>
+</body>
 
 </html>
