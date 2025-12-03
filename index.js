@@ -1,4 +1,3 @@
-// Функционал для мобильного меню
 const hamburger = document.getElementById('hamburger');
 const closeMenu = document.getElementById('closeMenu');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -42,13 +41,11 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Загрузка изображений
 document.querySelector('.upload-image').addEventListener('click', function() {
     document.getElementById('hidden-file-input').click();
 });
 
 
-// Добавление звезд рейтинга
 document.querySelectorAll('.rating').forEach(rating => {
     for (let i = 0; i < 5; i++) {
         const star = document.createElement('i');
@@ -57,7 +54,6 @@ document.querySelectorAll('.rating').forEach(rating => {
     }
 });
 
-// Обработка окна
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
         testimonialCards.forEach(card => {
@@ -91,7 +87,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Эффекты при наведении
 if (window.innerWidth > 768) {
     document.querySelectorAll('.desktop-nav li:not(:has(button))').forEach(item => {
         item.addEventListener('mouseenter', () => {
